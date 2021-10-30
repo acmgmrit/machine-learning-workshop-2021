@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title>ML - CRS</title>
+
+</head>
+<body>
+    <br/>
+    <center><h1>CROP RECOMMENDATION SYSTEM</h1></center>
+    <hr/>
+    <br/>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+            <!-- Displaying the Prediction Message if available -->
+            {% if prediction_message %}
+                <div class="alert alert-success"> <center>{{ prediction_message }}</center> </div>
+                <br/>
+            {% endif %}
+
+            <!-- Displaying the Error Prediction Message if available -->
+            {% if error_message %}
+                <div class="alert alert-danger"> <center>{{ error_message }}</center> </div>
+                <br/>
+            {% endif %}
+
+            <div class="card card-body">
+                <form class="form-horizontal" method="POST">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="N" placeholder="Amount of Nitrogen in Soil" /><br/>
+                        <input class="form-control" type="text" name="P" placeholder="Amount of Phosphorous in Soil" /><br/>
+                        <input class="form-control" type="text" name="K" placeholder="Amount of Pottasium in Soil" /><br/>
+                        <input class="form-control" type="text" name="temperature" placeholder="Temperature (in Celcius)" /><br/>
+                        <input class="form-control" type="text" name="humidity" placeholder="Humidity (in %)" /><br/>
+                        <input class="form-control" type="text" name="ph" placeholder="pH value of Soil" /><br/>
+                        <input class="form-control" type="text" name="rainfall" placeholder="Rainfall (in mm)" /><br/>
+                        <input class="btn btn-info btn-block" type="submit" value="Predict" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</body>
+</html>
